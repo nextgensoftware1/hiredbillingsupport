@@ -1,0 +1,47 @@
+/* Basic styling for NotFound page */
+.notfound-section{
+  padding: 80px 0;
+  background: #f9f9fb;
+}
+.notfound-container{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.notfound-code{
+  font-size: 96px;
+  font-weight: 700;
+  color: #1f2d3d;
+  margin: 0 0 16px;
+}
+.notfound-title{
+  font-size: 28px;
+  margin: 0 0 12px;
+  color: #1f2d3d;
+}
+.notfound-desc{
+  color: #555;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Style the button to resemble a link while remaining accessible */
+.back-home-btn{
+  background: none;
+  border: none;
+  color: #0d6efd; /* bootstrap link color */
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+}
+
+.back-home-btn:focus{
+  outline: 3px solid rgba(13,110,253,0.25);
+  outline-offset: 2px;
+}
+
+.back-home-btn:hover{
+  color: #084298;
+}

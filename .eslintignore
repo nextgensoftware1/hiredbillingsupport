@@ -1,0 +1,2 @@
+# Ignore minified/vendor JS files that cause ESLint errors
+src/assets/js/*.min.js

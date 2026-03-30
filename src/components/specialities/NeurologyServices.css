@@ -1,0 +1,66 @@
+/* Background for section */
+.neurology-section {
+  background-color: #f8fafc;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+/* Title */
+.section-title {
+  color: #001c48;
+  font-size: 1.8rem;
+}
+
+.title-underline {
+  width: 80px;
+  height: 3px;
+  background-color: #00b4ff;
+  margin: 10px auto 0 auto;
+  border-radius: 3px;
+}
+
+/* Service Card */
+.service-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* .service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
+} */
+
+/* Icon */
+.service-icon img {
+  /* width: 60px; */
+  /* height: 60px; */
+  border-radius: 10px;
+  background-color: #f1f8ff;
+  padding: 8px;
+  transition: transform 0.4s ease;
+}
+
+/* .service-card:hover .service-icon img {
+  transform: scale(1.05) rotate(5deg);
+} */
+
+/* Number */
+.service-number {
+  font-size: 2rem;
+  color: #001c48;
+  opacity: 0.3;
+}
+
+/* Text */
+.service-title {
+  color: #001c48;
+  font-size: 17px;
+}
+
+.service-text {
+  font-size: 15px;
+  line-height: 1.7;
+}

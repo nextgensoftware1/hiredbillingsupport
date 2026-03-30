@@ -1,0 +1,82 @@
+{
+  "name": "hiredbillingsupport",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.1",
+    "@popperjs/core": "^2.11.8",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "framer-motion": "^12.23.22",
+    "gsap": "^3.13.0",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^0.552.0",
+    "magnific-popup": "^1.2.0",
+    "motion": "^12.23.22",
+    "odometer": "^0.4.8",
+    "ogl": "^1.0.11",
+    "optimize-images": "^1.2.0",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-chartjs-2": "^5.3.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-router-dom": "^7.9.3",
+    "react-scripts": "5.0.1",
+    "react-slick": "^0.31.0",
+    "react-type-animation": "^3.2.0",
+    "react-visibility-sensor": "^5.1.1",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^12.0.2",
+    "web-vitals": "^2.1.4",
+    "wowjs": "^1.1.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "optimize-images": "node ./scripts/optimize-images.js",
+    "precompress": "node ./scripts/precompress.js",
+    "prepare-deploy": "npm run optimize-images && npm run precompress",
+    "generate-responsive": "node ./scripts/generate-responsive.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "baseline-browser-mapping": "^2.9.15",
+    "glob": "^11.0.3",
+    "imagemin": "^8.0.1",
+    "imagemin-avif": "^0.1.6",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "imagemin-webp": "^8.0.0",
+    "sharp": "^0.34.5"
+  }
+}
