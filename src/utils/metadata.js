@@ -245,11 +245,7 @@ export const metadata = {
         description: "Specialized billing services for Federally Qualified Health Centers (FQHCs) to optimize revenue and ensure compliance. Expert solutions tailored to the unique needs of FQHCs.",
         keywords: "FQHC billing services, healthcare billing for FQHCs, FQHC revenue optimization"
     },
-    memberCentricCare: {
-        title: "Member-Centric Care Solutions - HBS",
-        description: "Improve member care coordination with our member-centric solutions. Reduce manual effort, accelerate information flow, and support better outcomes across the care continuum.",
-        keywords: "member-centric care, care coordination, healthcare delivery, patient outcomes"
-    },
+   
     agingAR: {
         title: "Old & Aging AR Solutions - HBS",
         description: "Specialized solutions for managing old and aging accounts receivable. Optimize your revenue cycle and improve cash flow with our expert AR management services.",
@@ -271,11 +267,7 @@ export const metadata = {
         description: "Improve member care coordination with our member-centric solutions. Reduce manual effort, accelerate information flow, and support better outcomes across the care continuum.",
         keywords: "member-centric care, care coordination, healthcare delivery, patient outcomes"
     },
-    fqhc: {
-        title: "FQHC Billing Services - HBS",
-        description: "Specialized billing services for Federally Qualified Health Centers (FQHCs) to optimize revenue and ensure compliance. Expert solutions tailored to the unique needs of FQHCs.",
-        keywords: "FQHC billing services, healthcare billing for FQHCs, FQHC revenue optimization"
-    },
+    
     developerPortal: {
         title: "Developer Portal — HBS",
         description: "Access our developer portal to explore APIs, documentation, and tools for integrating with Hired Billing Support's platform.",
