@@ -149,20 +149,22 @@ const HireService = () => {
                       if (card.title === 'Resource Planning') url = '/hire-dedicated-team';
                     }
                     return (
-                      <motion.div 
-                        key={index}
-                        className="service-card"
-                        variants={itemVariants}
-                      >
-                        <div className="service-card-content">
-                          <div className="role-info">
-                            <div className="role-details">
-                              <h4>{card.title}</h4>
-                              <p>{card.desc}</p>
+                      <a href={url} style={{ textDecoration: 'none' }}>
+                        <motion.div 
+                          key={index}
+                          className="service-card"
+                          variants={itemVariants}
+                        >
+                          <div className="service-card-content">
+                            <div className="role-info">
+                              <div className="role-details">
+                                <h4>{card.title}</h4>
+                                <p>{card.desc}</p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </motion.div>
+                        </motion.div>
+                      </a>
                     );
                   })}
                 </div>
