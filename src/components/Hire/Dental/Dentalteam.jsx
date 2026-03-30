@@ -4,7 +4,7 @@ import medicalCoder from '../../../assets/images/avatar/team-5.png';
 import medicalScribe from '../../../assets/images/avatar/Dental_Billing_Specialist.webp';
 import billingCoordinator from '../../../assets/images/avatar/team-11.webp';
 import billingSpecialist from '../../../assets/images/avatar/Insurance_Dental_Specialist.webp';
-import priorAuthCoordinator from '../../../assets/images/avatar/team-13.png';
+// import priorAuthCoordinator from '../../../assets/images/avatar/team-13.png';
 import patientIntakeCoordinator from '../../../assets/images/avatar/Dental_Receptionist.webp';
 import insuranceVerification from '../../../assets/images/avatar/Dental_Insurance_Coordinator.webp';
 const Readygoal = () => {
