@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 // import WhatsappFloatingButton from './components/WhatsappFloatingButton';
 import { metadata } from './utils/metadata';
+import { enforceMeta, validateAllMetadata, buildOrganizationJsonLd } from './utils/seo';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './Pages/Home';
 import Medical from './Pages/Hiretalent/medical';
@@ -80,18 +81,25 @@ import MedicalOrderTransmission from './Pages/Whoweserve/medical-order-transmiss
 
 function MetadataManager() {
   const location = useLocation();
-  
+  const normalizePath = (p) => {
+    if (!p) return '/';
+    const noQuery = p.split('?')[0].split('#')[0];
+    const cleaned = noQuery.replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/$/, '');
+    return cleaned === '' ? '/' : cleaned;
+  };
+
   const getMetadataForPath = (path) => {
+    const cleanPath = normalizePath(path);
     // Handle dynamic case study routes with doctor slug
-    if (path.startsWith('/case-study/')) {
-      const slug = path.replace('/case-study/', '');
+    if (cleanPath.startsWith('/case-study/')) {
+      const slug = cleanPath.replace('/case-study/', '');
       if (metadata.caseStudies && metadata.caseStudies[slug]) {
         return metadata.caseStudies[slug];
       }
       return metadata.caseStudy; // fallback to generic case study metadata
     }
-    
-    switch(path) {
+
+    switch(cleanPath) {
       case '/':
         return metadata.home;
       case '/medical-services':
@@ -251,19 +259,39 @@ function MetadataManager() {
   };
 
   const currentMetadata = getMetadataForPath(location.pathname);
+  const safe = enforceMeta(currentMetadata, metadata.site || {});
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      const issues = validateAllMetadata(metadata);
+      if (issues && issues.length) {
+        // Log a concise validation report to help fix source metadata
+        // eslint-disable-next-line no-console
+        console.group('%cSEO metadata issues detected', 'color: #c93; font-weight: bold');
+        issues.forEach((it) => {
+          // eslint-disable-next-line no-console
+          console.warn(`Path: ${it.path} — title:${it.titleLen} chars, description:${it.descLen} chars`);
+        });
+        // eslint-disable-next-line no-console
+        console.groupEnd();
+      }
+    }
+  }, []);
 
   return (
     <Helmet>
-      <title>{currentMetadata.title || 'Hired Billing Support'}</title>
-      <meta name="description" content={currentMetadata.description || 'Hired Billing Support provides expert medical, dental, and RCM billing solutions for healthcare practices.'} />
+      <title>{safe.title || 'Hired Billing Support'}</title>
+      <meta name="description" content={safe.description || 'Hired Billing Support provides expert medical, dental, and RCM billing solutions for healthcare practices.'} />
       <meta name="keywords" content={currentMetadata.keywords || 'medical billing, dental billing, RCM, healthcare'} />
-      <meta property="og:title" content={currentMetadata.title || 'Hired Billing Support'} />
-      <meta property="og:description" content={currentMetadata.description || 'Hired Billing Support provides expert medical, dental, and RCM billing solutions for healthcare practices.'} />
-      <meta property="og:image" content="https://hiredbillingsupport.com/assets/images/site_logo/logo_black.png" />
+      <link rel="canonical" href={safe.url || 'https://www.hiredbillingsupport.com'} />
+      <meta property="og:title" content={safe.title || 'Hired Billing Support'} />
+      <meta property="og:description" content={safe.description || 'Hired Billing Support provides expert medical, dental, and RCM billing solutions for healthcare practices.'} />
+      <meta property="og:image" content={safe.image || 'https://www.hiredbillingsupport.com/assets/images/site_logo/logo_black.png'} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={currentMetadata.title || 'Hired Billing Support'} />
-      <meta name="twitter:description" content={currentMetadata.description || 'Hired Billing Support provides expert medical, dental, and RCM billing solutions for healthcare practices.'} />
+      <meta name="twitter:title" content={safe.title || 'Hired Billing Support'} />
+      <meta name="twitter:description" content={safe.description || 'Hired Billing Support provides expert medical, dental, and RCM billing solutions for healthcare practices.'} />
+      <script type="application/ld+json">{JSON.stringify(buildOrganizationJsonLd(metadata.site || {}))}</script>
     </Helmet>
   );
 }
